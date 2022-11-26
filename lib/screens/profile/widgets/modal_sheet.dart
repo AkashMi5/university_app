@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:university_app/screens/profile/bloc/profile_bloc.dart';
 import 'package:university_app/screens/profile/bloc/profile_event.dart';
 
-modalBottomSheet(BuildContext context, ProfileBloc _profileBloc) {
+modalBottomSheet(BuildContext context, ProfileBloc profileBloc) {
   showModalBottomSheet(
       context: context,
       backgroundColor: Colors.white,
@@ -40,35 +39,6 @@ modalBottomSheet(BuildContext context, ProfileBloc _profileBloc) {
                   padding: const EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 10.0),
                   child: Row(
                     children: <Widget>[
-                      // Expanded(
-                      //   flex: 1,
-                      //   child: Column(
-                      //     children: <Widget>[
-                      //       Material(
-                      //           color: Colors.white,
-                      //           child: InkWell(
-                      //             onTap: () {
-                      //               int imagecheck = 1;
-                      //               getImage(imagecheck);
-                      //               Navigator.of(context).pop();
-                      //             },
-                      //             child: Icon(
-                      //               Icons.camera_enhance,
-                      //               size: 45,
-                      //               color: Colors.blue[300],
-                      //             ),
-                      //           )),
-                      //       Text(
-                      //         "Camera",
-                      //         textAlign: TextAlign.left,
-                      //         style: TextStyle(
-                      //             fontSize: 14,
-                      //             fontWeight: FontWeight.bold,
-                      //             color: Colors.blue[300]),
-                      //       ),
-                      //     ],
-                      //   ),
-                      // ),
                       Expanded(
                         flex: 1,
                         child: Column(
@@ -77,7 +47,7 @@ modalBottomSheet(BuildContext context, ProfileBloc _profileBloc) {
                                 color: Colors.white,
                                 child: InkWell(
                                   onTap: () {
-                                    _profileBloc.add(PickProfilePhotoEvent());
+                                    profileBloc.add(PickProfilePhotoEvent());
                                     Navigator.of(context).pop();
                                   },
                                   child: Icon(

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:university_app/common_widgets/utility_widgets.dart';
-import 'package:university_app/routes.dart';
 import 'package:university_app/screens/university_list/bloc/university_list_bloc.dart';
 import 'package:university_app/screens/university_list/bloc/university_list_event.dart';
 import 'package:university_app/screens/university_list/bloc/university_list_state.dart';

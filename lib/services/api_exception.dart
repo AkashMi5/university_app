@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 class ApiException implements Exception {
   String? _message;
   String? _prefix;
