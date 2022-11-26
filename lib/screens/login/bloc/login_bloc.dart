@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:university_app/screens/login/models/user_login.dart';
 import 'package:university_app/screens/login/bloc/login_event.dart';

@@ -32,16 +32,8 @@ class _DashboardState extends State<Dashboard> {
   void initState() {
     _dashboardBloc = DashboardBloc();
     _dashboardBloc.add(DashboardLoadingEvent());
-    // getProfilePhotoAndName();
     super.initState();
   }
-
-  // getProfilePhotoAndName() async {
-  //   profileImagePath = await SharedpreferencesHelper.getProfilePic();
-  //   userName = await SharedpreferencesHelper.getUserName();
-  //   ProfileModel? profileModel = await SharedpreferencesHelper.getProfileData();
-  //   age = profileModel!.age;
-  // }
 
   @override
   void dispose() {
