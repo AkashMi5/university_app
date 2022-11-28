@@ -100,7 +100,8 @@ class _UniversityListViewState extends State<UniversityListView> {
                     width: cwidth,
                     color: const Color(0xff1D2951),
                   ),
-                  if (state is UniversityListLoadedState)
+                  if (state is UniversityListLoadedState &&
+                      state.univList.isNotEmpty)
                     Container(
                       margin: EdgeInsets.only(top: cheight * 0),
                       child: ListView.builder(
@@ -187,6 +188,13 @@ class _UniversityListViewState extends State<UniversityListView> {
                                 ),
                               )),
                     )
+                  else if (state is UniversityListLoadedState &&
+                      state.univList.isEmpty)
+                    const Center(
+                        child: Text(
+                      'No data available',
+                      style: TextStyle(color: Colors.white70),
+                    ))
                   else if (state is UniversityListLoadingState)
                     const Center(
                       child: CircularProgressIndicator(
