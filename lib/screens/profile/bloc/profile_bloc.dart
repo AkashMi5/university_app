@@ -25,8 +25,8 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
           await saveUserData(profileModel);
           emit(ProfileDataSubmittedState());
         } else if (event is PickProfilePhotoEvent) {
-          await getImage();
-          emit(PickProfilePhotoState());
+          String imagePath = await getImage();
+          emit(PickProfilePhotoState(imagePath: imagePath));
         } else if (event is ProfileErrorEvent) {
           emit(ProfileErrorState(event.errorMessage));
         } else if (event is ProfileResetEvent) {
@@ -42,11 +42,12 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
     await SharedpreferencesHelper.setProfileData(profileData);
   }
 
-  getImage() async {
+  Future<String> getImage() async {
     final ImagePicker picker = ImagePicker();
     // Pick an image
     final XFile? image = await picker.pickImage(source: ImageSource.gallery);
     String imagePath = image!.path;
     await SharedpreferencesHelper.setProfilePic(imagePath);
+    return imagePath;
   }
 }

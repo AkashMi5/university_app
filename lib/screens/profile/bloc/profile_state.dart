@@ -45,10 +45,12 @@ class AgeUpdateState extends ProfileState {
 }
 
 class PickProfilePhotoState extends ProfileState {
-  PickProfilePhotoState();
+  PickProfilePhotoState({required this.imagePath});
+
+  final String imagePath;
 
   @override
-  List<Object> get props => [];
+  List<Object> get props => [imagePath];
 }
 
 class ProfileResetState extends ProfileState {

@@ -76,7 +76,6 @@ class _ProfileViewState extends State<ProfileView> {
             Navigator.of(context).pushReplacementNamed(Routes.dashboard);
           } else if (state is PickProfilePhotoState) {
             profilePhotoPath = await SharedpreferencesHelper.getProfilePic();
-            setState(() {});
           }
         }, child: BlocBuilder<ProfileBloc, ProfileState>(
           builder: (context, state) {
@@ -120,8 +119,12 @@ class _ProfileViewState extends State<ProfileView> {
                                               shape: BoxShape.circle,
                                               image: DecorationImage(
                                                   fit: BoxFit.fill,
-                                                  image: FileImage(File(
-                                                      profilePhotoPath!))))),
+                                                  image: state
+                                                          is PickProfilePhotoState
+                                                      ? FileImage(
+                                                          File(state.imagePath))
+                                                      : FileImage(File(
+                                                          profilePhotoPath!))))),
                                 ),
                                 Positioned(
                                   right: 5,
